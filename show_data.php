@@ -96,7 +96,7 @@ if ($result_select->num_rows > 0) {
     <th>Material Status <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=material_status&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=material_status&order=desc">v</a> </th>
     <th>State <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=state&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=state&order=desc">v</a> </th>
     <th>City <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=city&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=city&order=desc">v</a> </th>
-    <th colspan="2">Action <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=&order=desc">v</a> </th>
+    <th colspan="2">Action </th>
 
 
   </tr>
@@ -146,10 +146,18 @@ else
   {
    $str=$_GET['name'];
   }
+  if(gettype($_GET['orderby']) == "NULL")
+  {
+    $orderby="id";
+  }
+  else
+  {
+   $orderby=$_GET['orderby'];
+  }
 
   //$sql_check='SELECT basic.* FROM `basic` INNER JOIN technology_detail on basic.id=technology_detail.u_id INNER join Language_detail on basic.id=Language_detail.u_id  WHERE basic.id>10000 and basic.fname LIKE "%'.$str.'%" and technology_detail.option_id like "%'.$_GET['tech'].'%"  and Language_detail.option_id like "%'.$_GET['lang'].'%" GROUP by basic.id limit '.$_GET['id'].','.$_GET['total'].'';
-  $sql_check='SELECT * FROM `basic` INNER JOIN technology_detail on basic.id=technology_detail.u_id INNER join Language_detail on basic.id=Language_detail.u_id  GROUP by basic.id having basic.id>10000 and basic.fname LIKE "%'.$str.'%" and technology_detail.option_id like "%'.$_GET['tech'].'%"  and Language_detail.option_id like "%'.$_GET['lang'].'%" ORDER BY basic.'.$_GET['orderby'].' '.$_GET['order'].' limit '.$_GET['id'].','.$_GET['total'].'';
-  
+  $sql_check='SELECT * FROM `basic` INNER JOIN technology_detail on basic.id=technology_detail.u_id INNER join Language_detail on basic.id=Language_detail.u_id  GROUP by basic.id having basic.id>10000 and basic.fname LIKE "%'.$str.'%" and technology_detail.option_id like "%'.$_GET['tech'].'%"  and Language_detail.option_id like "%'.$_GET['lang'].'%" ORDER BY basic.'.$orderby.' '.$_GET['order'].' limit '.$_GET['id'].','.$_GET['total'].'';
+  echo $sql_check;
   
   $len=0;
   $result = $conn->query($sql_check);
