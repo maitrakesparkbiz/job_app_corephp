@@ -83,19 +83,17 @@ if ($result_select->num_rows > 0) {
   }
   ?>
   <tr>
-    
-    <th>ID <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=id&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=id&order=desc">v</a> </th>
-    <th>Name <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=fname&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=fname&order=desc">v</a> </th>
-    <th>Email <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=email&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=email&order=desc">v</a> </th>
-    <th>Designation <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=designation&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=designation&order=desc">v</a> </th>
-    <th>Address <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=addr1&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=addr1&order=desc">v</a> </th>
-    <th>Phone No. <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=phone&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=phone&order=desc">v</a> </th>
-    <th>Zip Code <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=zip&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=zip&order=desc">v</a> </th>
-    <th>Date of Birth <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=dob&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=dob&order=desc">v</a> </th>
-    <th>Gender <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=gender&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=gender&order=desc">v</a> </th>
-    <th>Material Status <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=material_status&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=material_status&order=desc">v</a> </th>
-    <th>State <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=state&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=state&order=desc">v</a> </th>
-    <th>City <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=city&order=ASC">^</a> <a href="show_data.php?total=10&id=<?php echo $id?>&name=<?php echo $str?>&tech=<?php echo $tech?>&lang=<?php echo $lang?>&orderby=city&order=desc">v</a> </th>
+   
+    <th id="id">ID </th>
+    <th id="fname" >Name   </th>
+    <th id="email" >Email  > </th>
+    <th id="designation" >Designation  </th>
+    <th id="addr" >Address   </th>
+    <th id="phone" >Phone No.   </th>
+    <th id="zip" >Zip Code </th>
+    <th id="dob" >Date of Birth </th>
+    <th id="gender" >Gender </th>
+    <th id="status" >Material Status ASC </th>
     <th colspan="2">Action </th>
 
 
@@ -124,8 +122,8 @@ if( gettype($_GET['id']) == "NULL" && gettype($_GET['total']) == "NULL")
       echo '<td>'.$row['dob'].'</td>';
       echo '<td>'.$row['gender'].'</td>';
       echo '<td>'.$row['material_status'].'</td>';
-      echo '<td>'.$row['state_id'].'</td>';
-      echo '<td>'.$row['city'].'</td>';
+
+
       echo '<td><a href="http://localhost/job_app/update.php?id='.$row['id'].'"><button>EDIT</button></a></td>';
       echo '<td><a href="http://localhost/job_app/include/del.php?id='.$row['id'].'"><button>DELETE</button></a></td>';
     
@@ -176,8 +174,8 @@ else
       echo '<td>'.$row['dob'].'</td>';
       echo '<td>'.$row['gender'].'</td>';
       echo '<td>'.$row['material_status'].'</td>';
-      echo '<td>'.$row['state_id'].'</td>';
-      echo '<td>'.$row['city'].'</td>';
+
+
       echo '<td><a href="http://localhost/job_app/update.php?id='.$row['u_id'].'"><button>EDIT</button></a></td>';
       echo '<td><a href="http://localhost/job_app/include/del.php?id='.$row['u_id'].'"><button>DELETE</button></a></td>';
       echo '</tr>';
@@ -244,4 +242,430 @@ echo "<a href='show_data.php?total=10&id=".$id."&name=".$str."&tech=".$tech."&la
 ?>
 
 </body>
+<script>
+
+let id=document.getElementById('id');
+let name=document.getElementById('fname');
+let designation=document.getElementById('designation');
+let addr=document.getElementById('addr');
+let phone=document.getElementById('phone');
+let zip=document.getElementById('zip');
+let dob=document.getElementById('dob');
+let gender=document.getElementById('gender');
+let status=document.getElementById('status');
+
+
+
+
+id.onclick = function() {
+    let url = new URL(window.location.href);
+    let total=url.searchParams.get('total')
+    if(total==null)
+    {
+      total="10";
+    }
+    let id=url.searchParams.get('id')
+    if(id==null)
+    {
+      id="0";
+    }
+    let name=url.searchParams.get('name')
+    if(name==null)
+    {
+      name="";
+    }
+    let lang=url.searchParams.get('lang')
+    if(lang==null)
+    {
+      lang="";
+    }
+    let tech=url.searchParams.get('tech')
+    if(tech==null)
+    {
+      tech="";
+    }
+
+
+
+      if(url.searchParams.get('order')=="ASC")
+      {
+        console.log("asc",id,total,name,lang,tech);
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=id&order=desc"
+      }
+      else
+      {
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=id&order=ASC"
+      }
+
+}
+name.onclick = function() {
+    let url = new URL(window.location.href);
+    let total=url.searchParams.get('total')
+    if(total==null)
+    {
+      total="10";
+    }
+    let id=url.searchParams.get('id')
+    if(id==null)
+    {
+      id="0";
+    }
+    let name=url.searchParams.get('name')
+    if(name==null)
+    {
+      name="";
+    }
+    let lang=url.searchParams.get('lang')
+    if(lang==null)
+    {
+      lang="";
+    }
+    let tech=url.searchParams.get('tech')
+    if(tech==null)
+    {
+      tech="";
+    }
+
+
+
+      if(url.searchParams.get('order')=="ASC")
+      {
+        console.log("asc",id,total,name,lang,tech);
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=fname&order=desc"
+      }
+      else
+      {
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=fname&order=ASC"
+      }
+
+}
+email.onclick = function() {
+    let url = new URL(window.location.href);
+    let total=url.searchParams.get('total')
+    if(total==null)
+    {
+      total="10";
+    }
+    let id=url.searchParams.get('id')
+    if(id==null)
+    {
+      id="0";
+    }
+    let name=url.searchParams.get('name')
+    if(name==null)
+    {
+      name="";
+    }
+    let lang=url.searchParams.get('lang')
+    if(lang==null)
+    {
+      lang="";
+    }
+    let tech=url.searchParams.get('tech')
+    if(tech==null)
+    {
+      tech="";
+    }
+
+    let orederby=url.searchParams.get('orderby')
+
+      if(url.searchParams.get('order')=="ASC")
+      {
+        console.log("asc",id,total,name,lang,tech);
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=email&order=desc"
+      }
+      else
+      {
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=email&order=ASC"
+      }
+
+}
+designation.onclick = function() {
+    let url = new URL(window.location.href);
+    let total=url.searchParams.get('total')
+    if(total==null)
+    {
+      total="10";
+    }
+    let id=url.searchParams.get('id')
+    if(id==null)
+    {
+      id="0";
+    }
+    let name=url.searchParams.get('name')
+    if(name==null)
+    {
+      name="";
+    }
+    let lang=url.searchParams.get('lang')
+    if(lang==null)
+    {
+      lang="";
+    }
+    let tech=url.searchParams.get('tech')
+    if(tech==null)
+    {
+      tech="";
+    }
+
+    let orederby=url.searchParams.get('orderby')
+
+      if(url.searchParams.get('order')=="ASC")
+      {
+        console.log("asc",id,total,name,lang,tech);
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=designation&order=desc"
+      }
+      else
+      {
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=designation&order=ASC"
+      }
+
+}
+addr.onclick = function() {
+    let url = new URL(window.location.href);
+    let total=url.searchParams.get('total')
+    if(total==null)
+    {
+      total="10";
+    }
+    let id=url.searchParams.get('id')
+    if(id==null)
+    {
+      id="0";
+    }
+    let name=url.searchParams.get('name')
+    if(name==null)
+    {
+      name="";
+    }
+    let lang=url.searchParams.get('lang')
+    if(lang==null)
+    {
+      lang="";
+    }
+    let tech=url.searchParams.get('tech')
+    if(tech==null)
+    {
+      tech="";
+    }
+
+    let orederby=url.searchParams.get('orderby')
+
+      if(url.searchParams.get('order')=="ASC")
+      {
+        console.log("asc",id,total,name,lang,tech);
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=addr1&order=desc"
+      }
+      else
+      {
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=addr1&order=ASC"
+      }
+
+}
+phone.onclick = function() {
+    let url = new URL(window.location.href);
+    let total=url.searchParams.get('total')
+    if(total==null)
+    {
+      total="10";
+    }
+    let id=url.searchParams.get('id')
+    if(id==null)
+    {
+      id="0";
+    }
+    let name=url.searchParams.get('name')
+    if(name==null)
+    {
+      name="";
+    }
+    let lang=url.searchParams.get('lang')
+    if(lang==null)
+    {
+      lang="";
+    }
+    let tech=url.searchParams.get('tech')
+    if(tech==null)
+    {
+      tech="";
+    }
+
+    let orederby=url.searchParams.get('orderby')
+
+      if(url.searchParams.get('order')=="ASC")
+      {
+        console.log("asc",id,total,name,lang,tech);
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=phone&order=desc"
+      }
+      else
+      {
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=phone&order=ASC"
+      }
+
+}
+zip.onclick = function() {
+    let url = new URL(window.location.href);
+    let total=url.searchParams.get('total')
+    if(total==null)
+    {
+      total="10";
+    }
+    let id=url.searchParams.get('id')
+    if(id==null)
+    {
+      id="0";
+    }
+    let name=url.searchParams.get('name')
+    if(name==null)
+    {
+      name="";
+    }
+    let lang=url.searchParams.get('lang')
+    if(lang==null)
+    {
+      lang="";
+    }
+    let tech=url.searchParams.get('tech')
+    if(tech==null)
+    {
+      tech="";
+    }
+
+    let orederby=url.searchParams.get('orderby')
+
+      if(url.searchParams.get('order')=="ASC")
+      {
+        console.log("asc",id,total,name,lang,tech);
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=zip&order=desc"
+      }
+      else
+      {
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=zip&order=ASC"
+      }
+
+}
+dob.onclick = function() {
+    let url = new URL(window.location.href);
+    let total=url.searchParams.get('total')
+    if(total==null)
+    {
+      total="10";
+    }
+    let id=url.searchParams.get('id')
+    if(id==null)
+    {
+      id="0";
+    }
+    let name=url.searchParams.get('name')
+    if(name==null)
+    {
+      name="";
+    }
+    let lang=url.searchParams.get('lang')
+    if(lang==null)
+    {
+      lang="";
+    }
+    let tech=url.searchParams.get('tech')
+    if(tech==null)
+    {
+      tech="";
+    }
+
+    let orederby=url.searchParams.get('orderby')
+
+      if(url.searchParams.get('order')=="ASC")
+      {
+        console.log("asc",id,total,name,lang,tech);
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=dob&order=desc"
+      }
+      else
+      {
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=dob&order=ASC"
+      }
+
+}
+gender.onclick = function() {
+    let url = new URL(window.location.href);
+    let total=url.searchParams.get('total')
+    if(total==null)
+    {
+      total="10";
+    }
+    let id=url.searchParams.get('id')
+    if(id==null)
+    {
+      id="0";
+    }
+    let name=url.searchParams.get('name')
+    if(name==null)
+    {
+      name="";
+    }
+    let lang=url.searchParams.get('lang')
+    if(lang==null)
+    {
+      lang="";
+    }
+    let tech=url.searchParams.get('tech')
+    if(tech==null)
+    {
+      tech="";
+    }
+
+    let orederby=url.searchParams.get('orderby')
+
+      if(url.searchParams.get('order')=="ASC")
+      {
+        console.log("asc",id,total,name,lang,tech);
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=gender&order=desc"
+      }
+      else
+      {
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=gender&order=ASC"
+      }
+
+}
+status.onclick = function() {
+    let url = new URL(window.location.href);
+    let total=url.searchParams.get('total')
+    if(total==null)
+    {
+      total="10";
+    }
+    let id=url.searchParams.get('id')
+    if(id==null)
+    {
+      id="0";
+    }
+    let name=url.searchParams.get('name')
+    if(name==null)
+    {
+      name="";
+    }
+    let lang=url.searchParams.get('lang')
+    if(lang==null)
+    {
+      lang="";
+    }
+    let tech=url.searchParams.get('tech')
+    if(tech==null)
+    {
+      tech="";
+    }
+
+    let orederby=url.searchParams.get('orderby')
+
+      if(url.searchParams.get('order')=="ASC")
+      {
+        console.log("asc",id,total,name,lang,tech);
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=material_status&order=desc"
+      }
+      else
+      {
+        window.location.href="show_data.php?total="+total+"&id="+id+"&name="+name+"&tech="+tech+"&lang="+lang+"&orderby=material_status&order=ASC"
+      }
+
+}
+</script>
 </html>

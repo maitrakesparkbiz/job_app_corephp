@@ -17,7 +17,7 @@ else
   tech($last_id);
   ref($last_id);
   pref($last_id);
-  echo "<script>alert('Register successfully')</script>";
+  echo "<script>alert('update successfully')</script>";
   echo "<script>window.location.href='../show_data.php'</script>";
 
 }
@@ -43,8 +43,8 @@ global $last_id;
   $materialStatus=$_POST['materialStatus'];
   $dob=$_POST['dob'];
   $zip=$_POST['zip'];
-
- $sql_basic= 'UPDATE `basic` SET `fname`="'.$firstname.'",`lname`="'.$lastname.'",`email`="'.$email.'",`designation`="'.$designation.'",`addr1`="'.$addr1.'",`addr2`="'.$addr2.'",`phone`="'.$phone.'",`zip`="'.$zip.'",`dob`="'.$dob.'",`gender`="'.$gender.'",`state_id`="'.$state.'",`city`="'.$city.'",`material_status`="'.$materialStatus.'" WHERE id='.$hidden.'';
+  $country=$_POST['country'];
+ $sql_basic= 'UPDATE `basic` SET `fname`="'.$firstname.'",`lname`="'.$lastname.'",`email`="'.$email.'",`designation`="'.$designation.'",`addr1`="'.$addr1.'",`addr2`="'.$addr2.'",`phone`="'.$phone.'",`zip`="'.$zip.'",`dob`="'.$dob.'",`gender`="'.$gender.'",`country`="'.$country.'",`state_id`="'.$state.'",`city`="'.$city.'",`material_status`="'.$materialStatus.'" WHERE id='.$hidden.'';
  
  if ($conn->query($sql_basic) === TRUE) {
  
@@ -182,7 +182,7 @@ function lang($last_id) {
       while ($row = $result->fetch_assoc()) {
          $sql_edu= 'INSERT INTO `Language_detail`(`u_id`, `option_id`) VALUES 
         ('.$last_id.','.$row['id'].')';
- 
+        echo $sql_edu;
         if ($conn->query($sql_edu) === TRUE) {
         
           $cnt++;
@@ -202,6 +202,7 @@ function lang($last_id) {
       while ($row = $result->fetch_assoc()) {
          $sql_edu= 'INSERT INTO `Language_detail`(`u_id`, `option_id`) VALUES 
         ('.$last_id.','.$row['id'].')';
+        echo $sql_edu;
  
         if ($conn->query($sql_edu) === TRUE) {
         
@@ -222,6 +223,7 @@ function lang($last_id) {
       while ($row = $result->fetch_assoc()) {
          $sql_edu= 'INSERT INTO `Language_detail`(`u_id`, `option_id`) VALUES 
         ('.$last_id.','.$row['id'].')';
+        echo $sql_edu;
  
         if ($conn->query($sql_edu) === TRUE) {
         

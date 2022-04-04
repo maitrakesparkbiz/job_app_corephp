@@ -17,14 +17,19 @@ font-family: Cursive;
 font-size: xxx-large;
 font-weight: bolder;
       }
+      div{
+      display: none;  
+      }
     </style>
   </head>
 
-  <body>
+  <body onload="country()">
     <h1 style="text-align: center">Job Application Form</h1>
     <form action="../job_app/include/insert.php" method="post" onsubmit="return submit_form()">
-      <fieldset>
+      <div id="basic">
+    <fieldset>
         <legend><b>Basic Details</b></legend>
+        <button type="button" onclick="basic_next()">NEXT </button>
         <table cellspacing="10" align="center">
           <tr>
             <td>
@@ -32,6 +37,7 @@ font-weight: bolder;
             </td>
             <td>
               <input type="text" name="firstname" id="firstname"  />
+              <p style="color: red;" id="firstname_error"></p>
             </td>
 
             <td>
@@ -82,22 +88,6 @@ font-weight: bolder;
               <input type="text" name="phone" id="phone"  />
             </td>
 
-            <td>
-              <label for="city">City:</label>
-            </td>
-            <td>
-              <input type="text" name="city" id="city"  />
-            </td>
-          </tr>
-
-          <tr>
-            <td rowspan="2">
-              <label for="gender">Gender:</label>
-            </td>
-            <td rowspan="2">
-              <input type="radio" name="gender" value="male" /> Male
-              <input type="radio" name="gender" value="female" /> Female
-            </td>
 
             <td>
               <label for="zip">Zip Code: </label>
@@ -108,15 +98,34 @@ font-weight: bolder;
           </tr>
 
           <tr>
+            <td rowspan="2">
+              <label for="gender">Gender:</label>
+            </td>
+            <td rowspan="2">
+              <input type="radio" id="gender" name="gender" checked value="male" /> Male
+              <input type="radio" id="gender" name="gender" value="female" /> Female
+            </td>
+
+
+            <td>
+              <label for="county">County: </label>
+            </td>
+            <td>
+              <select name="country" id="country"  onchange="view_state()">
+              <option value="selected" selected disabled>Select</option>
+              </select>
+              
+            </td>
+          </tr>
+
+          <tr>
             <td>
               <label for="state">State: </label>
             </td>
             <td>
-              <select name="state" id="">
+              <select name="state" id="state" onchange="view_city()">
                 <option value="selected" selected disabled>Select</option>
-                <option value="gujarat">Gujarat</option>
-                <option value="maharashtra">Maharashtra</option>
-                <option value="punjab">Punjab</option>
+
               </select>
             </td>
           </tr>
@@ -132,8 +141,20 @@ font-weight: bolder;
                 <option value="married">Maried</option>
               </select>
             </td>
-
             <td>
+              <label for="City">City: </label>
+            </td>
+            <td>
+              <select name="city" id="city">
+              <option value="select" selected disabled>Select</option>
+               
+              </select>
+              
+            </td>
+
+          </tr>
+          <tr>
+          <td>
               <label for="dob">Date of Birth:</label>
             </td>
             <td>
@@ -142,11 +163,14 @@ font-weight: bolder;
           </tr>
         </table>
       </fieldset>
+    </div>
       <br /><br />
-
+      <div id="education">
       <fieldset>
         <legend><b>Education Details</b></legend>
         <table cellspacing="10" id="eductaionTable" align="center">
+        <button type="button" onclick="basic_back()">BACK </button>   
+          <button type="button" onclick="edu_next()">NEXT </button>
           <tr id="edu1">
             <td>
               <label for="courseName1">Course: </label>
@@ -214,10 +238,13 @@ font-weight: bolder;
           </tr>
         </table>
       </fieldset>
+      </div>
       <br /><br />
-
+      <div id="work">
       <fieldset>
         <legend><b>Work Experience</b></legend>
+        <button type="button" onclick="edu_back()">BACK </button>   
+        <button type="button" onclick="work_next()">NEXT </button>
         <table id="workExTable" cellspacing="10" align="center">
           <tr id="wx1">
             <td>
@@ -268,13 +295,18 @@ font-weight: bolder;
           </tr>
         </table>
       </fieldset>
+      </div>
       <br /><br />
-
+      <div id="combo">
       <table align="center">
+  
         <tr>
           <td>
             <fieldset>
               <legend><b>Language Known</b></legend>
+              <button type="button" onclick="work_back()">BACK </button>   
+              <button type="button" onclick="reff_next()">NEXT </button>
+        
               <table id="lanTable" cellspacing="10" align="center">
                 <tr id="lan1">
                   <td>
@@ -399,11 +431,16 @@ font-weight: bolder;
             </fieldset>
           </td>
         </tr>
+        
       </table>
+      </div>
       <br /><br />
-
+      <div id="reff">
       <fieldset>
         <legend><b>Refeneces</b></legend>
+        <button type="button" onclick="reff_back()">BACK </button>   
+        <button type="button" onclick="pref_next()">NEXT </button>
+        
         <table cellspacing="10" id="refTable" align="center">
           <tr id="ref1">
             <td>
@@ -449,10 +486,13 @@ font-weight: bolder;
           </tr>
         </table>
       </fieldset>
+      </div>
       <br /><br />
-
+      <div id="location">
       <fieldset>
         <legend><b>Preference</b></legend>
+        <button type="button" onclick="pref_back()">BACK </button>   
+               
         <table cellspacing="10" align="center">
           <tr>
             <td rowspan="4">
@@ -499,7 +539,7 @@ font-weight: bolder;
             </td>
 
             <td rowspan="4">
-              <select name="department" id=""  >
+              <select name="department" id="department"  >
                 <option value="select" selected disabled>Select</option>
                 <option value="ba">BA</option>
                 <option value="bde">BDE</option>
@@ -542,6 +582,7 @@ font-weight: bolder;
         </table>
       </fieldset>
       <br /><br />
+      </div>
 
       <table cellspacing="10" align="center">
         <tr>
@@ -552,28 +593,21 @@ font-weight: bolder;
       </table>
     </form>
 
-    <script>
+    <script src="../job_app/script/location.js">
 
-      var modal = document.getElementById("myModal");
-      var modal1 = document.getElementById("myModal1");
-      var modal2 = document.getElementById("myModal2");
-      var modal3 = document.getElementById("myModal3");
-      var modal4 = document.getElementById("myModal4");
-      var modal5 = document.getElementById("myModal5");
+      var basic = document.getElementById("basic");
+      var education = document.getElementById("education");
+      var work = document.getElementById("work");
+      var combo = document.getElementById("combo");
+      var reff = document.getElementById("reff");
+      var location = document.getElementById("location");
       
       var check = document.getElementById("check");
       
       
       // Get the button that opens the modal
-      var btn = document.getElementById("myBtn");
-      var next = document.getElementById("next");
-      var back = document.getElementById("back");
-      var next_3 = document.getElementById("next_3");
-      var next_4 = document.getElementById("next_4");
-      var next_5 = document.getElementById("next_5");
-      check.onclick = function() {
-       console.log("check")
-      }
+
+ 
       
       
       // Get the <span> element that closes the modal
@@ -581,7 +615,13 @@ font-weight: bolder;
       
       // When the user clicks the button, open the modal 
       
-        modal.style.display = "block";
+      basic.style.display = "block";
+      education.style.display = "none";
+      work.style.display = "none";
+      combo.style.display = "none";
+      reff.style.display = "none";
+      location.style.display = "none";
+
       
       
       // When the user clicks on <span> (x), close the modal

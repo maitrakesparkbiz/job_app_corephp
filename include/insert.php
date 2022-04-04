@@ -36,13 +36,15 @@ global $last_id;
   $email=$_POST['email'];
   $phone=$_POST['phone'];
   $city=$_POST['city'];
+  $country=$_POST['country'];
+
   $gender=$_POST['gender'];
   $state=$_POST['state'];
   $materialStatus=$_POST['materialStatus'];
   $dob=$_POST['dob'];
   $zip=$_POST['zip'];
 
- $sql_basic= 'INSERT INTO `basic`(`fname`, `lname`, `email`, `designation`, `addr1`, `addr2`, `phone`, `zip`, `dob`, `gender`, `state_id`, `city`, `material_status`) VALUES ("'.$firstname.'","'.$lastname.'","'.$email.'","'.$designation.'","'.$addr1.'","'.$addr2.'","'.$phone.'","'.$zip.'","'.$dob.'","'.$gender.'","'.$state.'","'.$city.'","'.$materialStatus.'")';
+ $sql_basic= 'INSERT INTO `basic`(`fname`, `lname`, `email`, `designation`, `addr1`, `addr2`, `phone`, `zip`, `dob`, `gender`,`country`, `state_id`, `city`, `material_status`) VALUES ("'.$firstname.'","'.$lastname.'","'.$email.'","'.$designation.'","'.$addr1.'","'.$addr2.'","'.$phone.'","'.$zip.'","'.$dob.'","'.$gender.'","'.$country.'","'.$state.'","'.$city.'","'.$materialStatus.'")';
  
  if ($conn->query($sql_basic) === TRUE) {
  
