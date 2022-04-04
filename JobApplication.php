@@ -1,4 +1,16 @@
+<?php
+include('../job_app/connection/connect.php');
 
+if($_GET['id'])
+{
+  echo '<script>console.log("done")</script>';
+  include("../job_app/update.php");
+}
+else
+{
+
+
+?>
 <html>
   <head>
     <title>Job Application Form</title>
@@ -193,7 +205,7 @@ font-weight: bolder;
                 <option value="select" selected disabled>Select</option>
                 <?php
                       include('../job_app/connection/connect.php');
-                      // echo "<script>alert('done')</script>";
+                      // echo "<script>alert('done')</>";
                       
 
                       $sql='SELECT id,name FROM `option_master` WHERE s_id=1';
@@ -1584,3 +1596,5 @@ font-weight: bolder;
     
   </body>
 </html>
+<?php
+}?>

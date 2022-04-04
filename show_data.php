@@ -124,7 +124,7 @@ if( gettype($_GET['id']) == "NULL" && gettype($_GET['total']) == "NULL")
       echo '<td>'.$row['material_status'].'</td>';
 
 
-      echo '<td><a href="http://localhost/job_app/update.php?id='.$row['id'].'"><button>EDIT</button></a></td>';
+      echo '<td><a href="http://localhost/job_app/JobApplication.php?id='.$row['id'].'"><button>EDIT</button></a></td>';
       echo '<td><a href="http://localhost/job_app/include/del.php?id='.$row['id'].'"><button>DELETE</button></a></td>';
     
 
@@ -176,7 +176,7 @@ else
       echo '<td>'.$row['material_status'].'</td>';
 
 
-      echo '<td><a href="http://localhost/job_app/update.php?id='.$row['u_id'].'"><button>EDIT</button></a></td>';
+      echo '<td><a href="http://localhost/job_app/JobApplication.php?id='.$row['u_id'].'"><button>EDIT</button></a></td>';
       echo '<td><a href="http://localhost/job_app/include/del.php?id='.$row['u_id'].'"><button>DELETE</button></a></td>';
       echo '</tr>';
     }
