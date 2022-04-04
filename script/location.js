@@ -226,95 +226,109 @@ function basic_next()
 
   if(!fname.match(nameptr) || fname=="")
   {
-    document.getElementById("firstname_error").innerHTML="First name only consists of alpha numeric number";
-     cnt++;
+   // document.getElementById("firstname_error").innerHTML="First name only consists of alpha numeric number";
+   document.getElementById("firstname_error").innerHTML=" Invalid First name"; 
+   cnt++;
 
   }
   if(!lname.match(nameptr) || fname=="")
   {
-    alert("last false");
+    document.getElementById("lastname_error").innerHTML=" Invalid Last name";
+   
+    
     cnt++;
 
   }
   if(!designation.match(desptr) || designation=="")
   {
-    alert("des false");
+    document.getElementById("designation_error").innerHTML=" Invalid Designation name";
     cnt++;
 
   }
   if(!addr1.match(addr) || addr1=="")
   {
-    alert("addr1 false");
+    document.getElementById("addr1_error").innerHTML=" Invalid address 1";
     cnt++;
 
   }
   if(!email.match(emailformat))
   {
-  alert("email false");
+    document.getElementById("eamil_error").innerHTML=" Invalid Email";
+  
   cnt++;
 
   }
  
   if(!addr2.match(addr) || addr2=="")
   {
-    alert("addr2 false");
+    document.getElementById("addr2_error").innerHTML=" Invalid address 2";
+  
     cnt++;
 
   }
   if(!city.match(desptr))
   {
-    alert("city false");
+    document.getElementById("firstname_error").innerHTML=" Invalid ";
+  
     cnt++;
 
   }
   if(!phone.match(phoneptr))
   {
-    alert("phone false");
+    document.getElementById("phone_error").innerHTML=" Invalid Phone No.";
+  
      cnt++;
 
   }
   if(!zip.match(zipptr))
   {
-    alert("zip false");
+    document.getElementById("zip_error").innerHTML=" Invalid Zip Code";
+  
     cnt++;
 
   }
 
   if(gender=="")
   {
-    alert("Gender false");
+    document.getElementById("gender_error").innerHTML="Invalid Gender Please Select One Gender";
+  
     cnt++;
 
   }
   
   if(country=="selected")
   {
-    alert("please Select a country ");
+    document.getElementById("country_error").innerHTML="Invalid Country Please Select One Country";
+  
     cnt++;
 
   }
 
   if(state=="selected")
   {
-    alert("please Select a state ");
+    document.getElementById("state_error").innerHTML=" Invalid State Please Select One State ";
+  
     cnt++;
 
   }
   if(city=="selected")
   {
-    alert("please Select a City ");
+    document.getElementById("city_error").innerHTML=" Invalid City Please Select One City ";
+  
     cnt++;
 
   }
   if(materialStatus=="select")
   {
-    alert("please Select a material Status ");
+    document.getElementById("status_error").innerHTML=" Invalid Material status Please Select one option";
+  
     cnt++;
 
   }
   if(dob=="")
   {
-    alert("false dob");
+    document.getElementById("dob_error").innerHTML=" Invalid Date of Birth";
+  
     cnt++;
 
   } 
@@ -355,12 +369,18 @@ function edu_next()
 
   for(i=0;i<rows_count.length;i++)
   {
+
+
     var course="edu["+i+"][courseName]";
+    var course_error="course_error"+i;
+    var uniname_error="uniname_error"+i;
+    var year_error="year_error"+i;
+    var percentage_error="percentage_error"+i;
 
     var str="edu["+i+"][universityName]";
     var str1="edu["+i+"][passingYear]";
     var str2="edu["+i+"][percentage]";
-    let cnt=0;
+  
     var coursename =document.getElementById(course).value;
     var uni =document.getElementById(str).value;
     var uniyear =document.getElementById(str1).value;
@@ -369,32 +389,60 @@ function edu_next()
     console.log(coursename);
     if(coursename=="select")
     {
-      alert("please Select "+number+" university course")
+    
+    document.getElementById(course_error).innerHTML=" Invalid Course Name Please Select on course";
+      
         cnt++;
+
+    }
+    else
+    {
+      document.getElementById(course_error).innerHTML="";
 
     }
 
     if(!uni.match(uniptr) || uni=="")
     {
-      alert("false "+number+" university name")
+      document.getElementById(uniname_error).innerHTML=" Invalid Name";
+    
+
         cnt++;
+
+    }
+    else
+    {
+      document.getElementById(uniname_error).innerHTML="";
 
     }
     
     if(!uniyear.match(uniyearptr))
     {
-      alert("false "+number+" university year")
+      document.getElementById(year_error).innerHTML=" Invalid Year";
+
+
         cnt++;
+
+    }
+    else
+    {
+      document.getElementById(year_error).innerHTML="";
 
     }
     if(!uniper.match(uniperptr))
     {
-      alert("false "+number+" university percentage")
+            document.getElementById(percentage_error).innerHTML=" Invalid percentage";
+    
+
         cnt++;
 
     }
+    else
+    {
+      document.getElementById(percentage_error).innerHTML="";
+    }
 
   }
+  
   if(cnt==0)
   {
     document.getElementById("education").style.display = 'none';
@@ -431,6 +479,11 @@ function work_next()
     var str3="work["+i+"][designation]"
     var str1="work["+i+"][from]";
     var str="work["+i+"][to]"
+    var company="company_error"+i;
+    var des="designation_error"+i;
+    var from="from_error"+i;
+    var to="to_error"+i;
+
     var todate=document.getElementById(str).value;
     var fromdate=document.getElementById(str1).value;
     var compname=document.getElementById(str2).value;
@@ -440,14 +493,27 @@ function work_next()
 
     if(!compname.match(desptr) ||  compname=="")
     {
-      alert("company "+number+" false")
+      
+    document.getElementById(company).innerHTML=" Invalid Company Name";
+
       cnt++;
+
+    }
+    else
+    {
+    document.getElementById(company).innerHTML="";
 
     }
     if(!desname.match(desptr) ||  desname=="")
     {
-      alert("des "+number+" false")
+      
+    document.getElementById(des).innerHTML=" Invalid Designation Name";
       cnt++;
+
+    }
+    else
+    {
+      document.getElementById(des).innerHTML="";
 
     }
     if( todate=="")
@@ -456,10 +522,17 @@ function work_next()
     
       //if(!todate.match(dateptr) )
       //{
-        alert(" "+number+" to  date false")
+        
+    document.getElementById(to).innerHTML="Invalid To Date";
+
         cnt++;
 
       //}
+    }
+    else
+    {
+    document.getElementById(to).innerHTML="";
+
     }
 /*     else
     {
@@ -474,10 +547,17 @@ function work_next()
     
       //if(!fromdate.match(dateptr) )
       //{
-        alert(" "+number+" from date false")
+        
+    document.getElementById(from).innerHTML="Invalid From Date";
+
         cnt++;
 
       //}
+    }
+    else
+    {
+    document.getElementById(from).innerHTML="";
+
     }
 /*     else
     {
@@ -486,6 +566,7 @@ function work_next()
 
     } */
   }
+  
   if(cnt==0)
   {
     document.getElementById("work").style.display = 'none';
@@ -520,20 +601,27 @@ function reff_next()
     var e =document.getElementById(str);
     var optionSelectedText = e.options[e.selectedIndex].value;
     var cnt=0;
+    var lang_select="language_error"+i;
+    var checkbox_select="known_error"+i;
+
     var read = document.getElementById(str1);  
     var write = document.getElementById(str2);  
     var speak = document.getElementById(str3);  
 
     if(optionSelectedText=="lan_select")
     {
-        alert("false lang")
+        
+    document.getElementById(lang_select).innerHTML="Please select a language";
+
         cnt++;
     }
     else
     {
       if (read.checked==false && write.checked==false && speak.checked==false) 
         {
-        alert("false checkbox")
+       
+    document.getElementById(checkbox_select).innerHTML="Need to select one Check Box";
+
         cnt++;
         }
     }
@@ -567,6 +655,9 @@ function pref_next()
     var str="ref["+i+"][refName]";
     var str1="ref["+i+"][refContact]";
     var str2="ref["+i+"][refRelation]";
+    var refname_error="refname"+i
+    var refcontact_error="refcontact"+i
+    var refrealtion_error="refrealtion"+i
     var name =document.getElementById(str).value;
     var refcontact =document.getElementById(str1).value;
     var relation =document.getElementById(str2).value;
@@ -574,21 +665,39 @@ function pref_next()
    
     if(!name.match(nameptr) || name=="")
     {
-      alert("false "+number+" Refeneces name")
+
+    document.getElementById(refname_error).innerHTML="Invalid Name";
       cnt++;
+
+    }
+    else
+    {
+    document.getElementById(refname_error).innerHTML="";
 
     }
     
     if(!refcontact.match(contact) || refcontact=="")
     {
-      alert("false "+number+" Refeneces contect")
+
+    document.getElementById(refcontact_error).innerHTML="Invalid Contact No.";
       cnt++;
+
+    }
+    else
+    {
+    document.getElementById(refcontact_error).innerHTML="";
 
     }
     if(!relation.match(desptr)|| relation=="")
     {
-      alert("false "+number+" Refeneces relation")
+
+    document.getElementById(refrealtion_error).innerHTML="Invaild Relation";
       cnt++;
+
+    }
+    else
+    {
+    document.getElementById(refrealtion_error).innerHTML="";
 
     }
 
@@ -627,22 +736,22 @@ function onAddEduRow() {
     "<label for='courseName" +
     edu_counter +
     "'>Course: </label> <select name=edu["+edu_counter+"][courseName] id='edu["+edu_counter+"][courseName]'>" +
-    "<option value='select' selected disabled>Select</option> <option value='ssc'>SSC</option> <option value='hsc'>HSC</option> <option value='bachelor'>Bachelors</option> <option value='master'>Masters</option> </select > ";
+    "<option value='select' selected disabled>Select</option> <option value='1'>SSC</option> <option value='2'>HSC</option> <option value='3'>Bachelors</option> <option value='4'>Masters</option> </select > <p style='color: red;' id='course_error"+edu_counter+"'></p>";
   cell2.innerHTML =
     "<label for='universityName" +
     edu_counter +
     "'>University</label>" +
-    "<input type='text' name=edu["+edu_counter+"][universityName]  id='edu["+edu_counter+"][universityName]'>";
+    "<input type='text' name=edu["+edu_counter+"][universityName]  id='edu["+edu_counter+"][universityName]'><p style='color: red;' id='uniname_error"+edu_counter+"'></p>";
   cell3.innerHTML =
     "<label for='passingYear" +
     edu_counter +
     "'>Passing Year: </label>" +
-    "<input type='text' name=edu["+edu_counter+"][passingYear]  id='edu["+edu_counter+"][passingYear]'>";
+    "<input type='text' name=edu["+edu_counter+"][passingYear]  id='edu["+edu_counter+"][passingYear]'><p style='color: red;' id='year_error"+edu_counter+"'></p>";
   cell4.innerHTML =
     "<label for='percentage" +
     edu_counter +
     "'>Percentage: </label>" +
-    "<input type='text' name=edu["+edu_counter+"][percentage]  id='edu["+edu_counter+"][percentage]'>";
+    "<input type='text' name=edu["+edu_counter+"][percentage]  id='edu["+edu_counter+"][percentage]'> <p style='color: red;' id='percentage_error"+edu_counter+"'></p>";
   cell5.innerHTML =
     "<input type='button' value='-' name='removeRow" +
     edu_counter +
@@ -670,18 +779,18 @@ function onAddwxRow() {
     cell1.innerHTML =
     "<label for='designation" +
     wx_counter +
-    "'>Comapny Name:</label> <input type='text' name='work["+wx_counter+"][companyName]' id='work["+wx_counter+"][companyName]"+"'>";
+    "'>Comapny Name:</label> <input type='text' name='work["+wx_counter+"][companyName]' id='work["+wx_counter+"][companyName]"+"'>    <p style='color: red;' id='company_error"+wx_counter+"'></p>";
   cell2.innerHTML =
     "<label for='designation" +
     wx_counter +
-    "'>Designation:</label> <input type='text' name='work["+wx_counter+"][designation]' id='work["+wx_counter+"][designation]"+"'>";
+    "'>Designation:</label> <input type='text' name='work["+wx_counter+"][designation]' id='work["+wx_counter+"][designation]"+"'><p style='color: red;' id='designation_error"+wx_counter+"'></p>";
   cell3.innerHTML =
     "<label for='from" +
-"'>From:</label> <input type='date' name='work["+wx_counter+"][from]' id='work["+wx_counter+"][from]"+"'>";
+"'>From:</label> <input type='date' name='work["+wx_counter+"][from]' id='work["+wx_counter+"][from]"+"'> <p style='color: red;' id='from_error"+wx_counter+"'></p>";
   cell4.innerHTML =
     "<label for='to" +
     wx_counter +
-    "'>To:</label> <input type='date' name='work["+wx_counter+"][to]' id='work["+wx_counter+"][to]" +"'>";
+    "'>To:</label> <input type='date' name='work["+wx_counter+"][to]' id='work["+wx_counter+"][to]" +"'> <p style='color: red;' id='to_error0"+wx_counter+"'></p>";
   cell5.innerHTML =
     "<input type='button' value='-' name='removeRow" +
     wx_counter +
@@ -713,11 +822,12 @@ function onAddLanRow() {
     ">Hindi</option>" +
     "<option value='gujarati'" +
     ">Gujarati</option>" +
-    "</select>";
+    "</select> <p style='color: red;' id='language_error"+lan_counter+"'></p>"
+    ;
   cell2.innerHTML =
     "<input type='checkbox'  name='lang["+lan_counter+"][read]'  id='lang["+lan_counter+"][read]'  value='read' >Read " +
     "<input type='checkbox' name='lang["+lan_counter+"][write]'  id='lang["+lan_counter+"][write]''   value='write' >Write " +
-    "<input type = 'checkbox' name = 'lang["+lan_counter+"][speak]' id='lang["+lan_counter+"][speak]' value='speak' >Speak ";
+    "<input type = 'checkbox' name = 'lang["+lan_counter+"][speak]' id='lang["+lan_counter+"][speak]' value='speak' >Speak  <p style='color: red;' id='known_error"+lan_counter+"'></p> ";
   cell3.innerHTML =
     "<input type='button' value='-' name='removeRow" +
     lan_counter +
@@ -765,6 +875,48 @@ function onAddTechRow() {
   tech_counter = tech_counter + 1;
 }
 
+function onAddRefRow() {
+  let table = document.getElementById("refTable");
+  var ref_counter = document.getElementById('refTable').getElementsByTagName('tr').length;
+  let row = table.insertRow();
+  row.id = "ref" + ref_counter;
+
+  let cell1 = row.insertCell();
+  let cell2 = row.insertCell();
+  let cell3 = row.insertCell();
+  let cell4 = row.insertCell();
+
+  cell1.innerHTML =
+    "<label for='refName" +
+    ref_counter +
+    "'>Name:</label> <input type='text' name='ref["+ref_counter+"][refName]' id='ref["+ref_counter+"][refName]'> <p style='color: red;' id='refname"+ref_counter+"'></p>";
+  cell2.innerHTML =
+    "<label for='refcontact" +
+    ref_counter +
+    "'>Contact Number:</label> <input type='tel' name='ref["+ref_counter+"][refContact]' id='ref["+ref_counter+"][refContact]'> <p style='color: red;' id='refcontact"+ref_counter+"'></p>";
+  cell3.innerHTML =
+    "<label for='refRelation" +
+    ref_counter +
+    "'>Relation:</label> <input type='text' name='ref["+ref_counter+"][refRelation]' id='ref["+ref_counter+"][refRelation]'> <p style='color: red;' id='refrealtion"+ref_counter+"'></p>";
+  cell4.innerHTML =
+    "<td colspan='2'> <input type='button' value='-'' name='removeRow" +
+    ref_counter +
+    "' id='removeRow" +
+    ref_counter +
+    "' onclick=onRemoveRow('ref" +
+    ref_counter +
+    "')> </td>";
+
+  ref_counter = ref_counter + 1;
+}
+
+function onRemoveRow(rowid) {
+  if (confirm("Are you sure you want to delete record?") == true) {
+    let row = document.getElementById(rowid);
+    row.parentNode.removeChild(row);
+  }
+}
+
 function submit_form()
 {  
   var location= document.getElementById("location").value
@@ -788,12 +940,23 @@ console.log(location);
   else */ if(!notice_Period.match(noticeptr) || notice_Period=="")
   {
     alert("false notice period") 
+    document.getElementById("notice_error").innerHTML="Invalid Notice Period ";
+    document.getElementById("currect_error").innerHTML="";
+    document.getElementById("expected_error").innerHTML="";
+    document.getElementById("dept_error").innerHTML="";
+
     return false;
 
   }
   else if(!current_CTC.match(ctc) || current_CTC=="")
   {
     alert("false current ctc")
+    document.getElementById("notice_error").innerHTML="";
+    document.getElementById("currect_error").innerHTML="Invalid Current CTC";
+    document.getElementById("expected_error").innerHTML="";
+    document.getElementById("dept_error").innerHTML="";
+
+
     return false;
 
   }
@@ -801,12 +964,24 @@ console.log(location);
   else if(!expected_CTC.match(ctc) || expected_CTC=="")
   {
     alert("false expected ctc")
+    document.getElementById("notice_error").innerHTML="";
+    document.getElementById("currect_error").innerHTML="";
+    document.getElementById("expected_error").innerHTML="Invalid Expected CTC";
+    document.getElementById("dept_error").innerHTML="";
+
+
     return false;
 
   }
   else if(department=="select")
   {
     alert("please select department") 
+    document.getElementById("notice_error").innerHTML="";
+    document.getElementById("currect_error").innerHTML="";
+    document.getElementById("expected_error").innerHTML="";
+    document.getElementById("dept_error").innerHTML=" Please select one department";
+
+
     return false;
 
   }

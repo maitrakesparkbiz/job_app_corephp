@@ -52,6 +52,7 @@ if ($result->num_rows > 0) {
                   <input type="hidden" name="hidden" id="hidden" <?php echo 'value="' . $_GET['id'] . '"' ?> />
 
                   <input type="text" name="firstname" id="firstname" <?php echo 'value="' . $row['fname'] . '"' ?> />
+                  <p style="color: red;" id="firstname_error"></p>
                 </td>
 
                 <td>
@@ -59,6 +60,7 @@ if ($result->num_rows > 0) {
                 </td>
                 <td>
                   <input type="text" name="lastname" id="lastname" <?php echo 'value="' . $row['lname'] . '"' ?> />
+                  <p style="color: red;" id="lastname_error"></p>
                 </td>
               </tr>
 
@@ -68,6 +70,7 @@ if ($result->num_rows > 0) {
                 </td>
                 <td>
                   <input type="text" name="designation" id="designation" <?php echo 'value="' . $row['designation'] . '"' ?> />
+                  <p style="color: red;" id="designation_error"></p>
                 </td>
 
                 <td>
@@ -75,6 +78,7 @@ if ($result->num_rows > 0) {
                 </td>
                 <td>
                   <input type="text" name="addr1" id="addr1" <?php echo 'value="' . $row['addr1'] . '"' ?> />
+                  <p style="color: red;" id="addr1_error"></p>
                 </td>
               </tr>
 
@@ -84,6 +88,7 @@ if ($result->num_rows > 0) {
                 </td>
                 <td>
                   <input type="text" name="email" id="email" <?php echo 'value="' . $row['email'] . '"' ?> />
+                  <p style="color: red;" id="eamil_error"></p>
                 </td>
 
                 <td>
@@ -91,6 +96,7 @@ if ($result->num_rows > 0) {
                 </td>
                 <td>
                   <input type="text" name="addr2" id="addr2" <?php echo 'value="' . $row['addr2'] . '"' ?> />
+                  <p style="color: red;" id="addr2_error"></p>
                 </td>
               </tr>
 
@@ -100,6 +106,7 @@ if ($result->num_rows > 0) {
                 </td>
                 <td>
                   <input type="text" name="phone" id="phone" <?php echo 'value="' . $row['phone'] . '"' ?> />
+                  <p style="color: red;" id="phone_error"></p>
                 </td>
 
                 <!--             <td>
@@ -113,6 +120,7 @@ if ($result->num_rows > 0) {
                 </td>
                 <td>
                   <input type="text" name="zip" id="zip" <?php echo 'value="' . $row['zip'] . '"' ?> />
+                  <p style="color: red;" id="zip_error"></p>
                 </td>
               </tr>
 
@@ -127,7 +135,8 @@ if ($result->num_rows > 0) {
                   <input type="radio" name="gender" value="female" id="gender" <?php if ($row['gender'] == "female") {
                                                                                   echo "checked";
                                                                                 } ?> /> Female
-                </td>
+                       <p style="color: red;" id="gender_error"></p>
+                      </td>
 
                 <!--             <td>
               <label for="zip">Zip Code: </label>
@@ -142,7 +151,7 @@ if ($result->num_rows > 0) {
                   <select name="country" id="country" onchange="view_state()">
 
                   </select>
-
+                  <p style="color: red;" id="country_error"></p>
                 </td>
               </tr>
 
@@ -155,6 +164,7 @@ if ($result->num_rows > 0) {
 
 
                   </select>
+                  <p style="color: red;" id="state_error"></p>
                 </td>
               </tr>
 
@@ -172,6 +182,7 @@ if ($result->num_rows > 0) {
                                               echo "selected";
                                             } ?>>Maried</option>
                   </select>
+                  <p style="color: red;" id="status_error"></p>
                 </td>
 
                 <!--             <td>
@@ -188,7 +199,7 @@ if ($result->num_rows > 0) {
 
 
                   </select>
-
+                  <p style="color: red;" id="city_error"></p>
                 </td>
               </tr>
               <tr>
@@ -197,6 +208,7 @@ if ($result->num_rows > 0) {
                 </td>
                 <td>
                   <input type="date" name="dob" id="dob" <?php echo 'value="' . $row['dob'] . '"' ?> />
+                  <p style="color: red;" id="dob_error"></p>
                 </td>
               </tr>
             </table>
@@ -248,21 +260,26 @@ if ($result->num_rows > 0) {
                       ?>
 
                     </select>
+                    <p style="color: red;" id="course_error0"></p>
                   </td>
 
                   <td>
                     <label for="universityName1">University:</label>
                     <input type="text" name="edu[<?php echo $cnt; ?>][universityName]" id="edu[<?php echo $cnt; ?>][universityName]" value="<?php echo $row1['university']; ?>" />
+                    <p style="color: red;" id="uniname_error0"></p>
                   </td>
 
                   <td>
                     <label for="passingYear1">Passing Year: </label>
                     <input type="text" name="edu[<?php echo $cnt; ?>][passingYear]" id="edu[<?php echo $cnt; ?>][passingYear]" value="<?php echo $row1['passing_year']; ?>" />
+                    <p style="color: red;" id="year_error0"></p>
+              
                   </td>
 
                   <td>
                     <label for="percentage1">Percentage: </label>
                     <input type="text" name="edu[<?php echo $cnt; ?>][percentage]" id="edu[<?php echo $cnt; ?>][percentage]" value="<?php echo $row1['percentage']; ?>" />
+                    <p style="color: red;" id="percentage_error0"></p>
                   </td>
 
                   <!-- remove button -->
@@ -310,22 +327,27 @@ if ($result->num_rows > 0) {
                   <td>
                     <label for="companyName1">Comapny Name:</label>
                     <input type="text" name="work[<?php echo $cnt; ?>][companyName]" id="work[<?php echo $cnt; ?>][companyName]" value="<?php echo $row1['company_name']; ?>" />
+                    <p style="color: red;" id="company_error0"></p>
                   </td>
 
                   <td>
                     <label for="designation1">Designation:</label>
                     <input type="text" name="work[<?php echo $cnt; ?>][designation]" id="work[<?php echo $cnt; ?>][designation]" value="<?php echo $row1['designation']; ?>" />
+                    <p style="color: red;" id="designation_error0"></p>
                   </td>
 
                   <td>
                     <label for="from1">From:</label>
                     <input type="date" name="work[<?php echo $cnt; ?>][from]" id="work[<?php echo $cnt; ?>][from]" value="<?php echo $row1['from_date']; ?>" />
+                    <p style="color: red;" id="from_error0"></p>
+                  
                   </td>
 
                   <td>
                     <label for="to1">To:</label>
                     <input type="date" name="work[<?php echo $cnt; ?>][to]" id="work[<?php echo $cnt; ?>][to]" value="<?php echo $row1['to_date']; ?>" />
-                  </td>
+                    <p style="color: red;" id="to_error0"></p>
+                   </td>
 
                   <!-- remove button -->
                   <td colspan="2">
@@ -398,6 +420,7 @@ if ($result->num_rows > 0) {
                             }
                             ?>
                           </select>
+                          <p style="color: red;" id="language_error0"></p>
                         </td>
 
                         <td>
@@ -460,7 +483,8 @@ if ($result->num_rows > 0) {
                                                                                                                                           echo $rowg; ?>"/>Read
                     <input type="checkbox" name="lang[<?php echo $cnt; ?>][write]"  id="lang[<?php echo $cnt; ?>][write]" value="Write" />Write
                     <input type="checkbox" name="lang[<?php echo $cnt; ?>][speak]"  id="lang[<?php echo $cnt; ?>][speak]" value="Speak"/>Speak -->
-                        </td>
+                    <p style="color: red;" id="known_error0"></p>      
+                         </td>
 
                         <!-- remove button -->
                         <td colspan="2">
@@ -586,16 +610,19 @@ if ($result->num_rows > 0) {
                   <td>
                     <label for="refName">Name:</label>
                     <input type="text" name="ref[<?php echo $cnt; ?>][refName]" id="ref[<?php echo $cnt; ?>][refName]" value="<?php echo $row1['name']; ?>" />
-                  </td>
+                    <p style="color: red;" id="refname0"></p>
+                   </td>
 
                   <td>
                     <label for="refcontact">Contact Number:</label>
                     <input type="tel" name="ref[<?php echo $cnt; ?>][refContact]" id="ref[<?php echo $cnt; ?>][refContact]" value="<?php echo $row1['contact_no']; ?>" />
+                    <p style="color: red;" id="refcontact0"></p>
                   </td>
 
                   <td>
                     <label for="refRelation">Relation:</label>
                     <input type="text" name="ref[<?php echo $cnt; ?>][refRelation]" id="ref[<?php echo $cnt; ?>][refRelation]" value="<?php echo $row1['relation']; ?>" />
+                    <p style="color: red;" id="refrealtion0"></p>
                   </td>
 
                   <!-- remove button -->
@@ -704,7 +731,8 @@ if ($result->num_rows > 0) {
                   <td>
                     <input type="text" name="noticePeriod" id="noticePeriod" value="<?php
                                                                                     echo $row1['notice_period'] ?>" placeholder="in Months" />
-                  </td>
+                     <p style="color: red;" id="notice_error"></p>
+                    </td>
 
                   <td rowspan="4">
                     <label for="department">Department:</label>
@@ -729,6 +757,7 @@ if ($result->num_rows > 0) {
                                                   echo "selected";
                                                 } ?>>Marketing</option>
                     </select>
+                    <p style="color: red;" id="dept_error"></p>
                   </td>
             </tr>
 
@@ -739,6 +768,8 @@ if ($result->num_rows > 0) {
 
               <td>
                 <input type="text" name="currentCTC" id="currentCTC" value="<?php echo $row1['current_ctc'] ?>" />
+              
+                <p style="color: red;" id="currect_error"></p>
               </td>
             </tr>
 
@@ -749,6 +780,7 @@ if ($result->num_rows > 0) {
 
               <td>
                 <input type="text" name="expectedCTC" id="expectedCTC" value="<?php echo $row1['exp_ctc'] ?>" />
+                <p style="color: red;" id="expected_error"></p>
               </td>
             </tr>
 
@@ -1126,11 +1158,7 @@ if ($result->num_rows > 0) {
              
                      console.log(fname.match(nameptr))
                      if(!fname.match(nameptr))
-                     {
-                       alert("first false");
-                        
-             
-                     }
+
                      if(!lname.match(nameptr))
                      {
                        alert("last false");

@@ -45,6 +45,7 @@ font-weight: bolder;
             </td>
             <td>
               <input type="text" name="lastname" id="lastname"  />
+              <p style="color: red;" id="lastname_error"></p>
             </td>
           </tr>
 
@@ -54,6 +55,7 @@ font-weight: bolder;
             </td>
             <td>
               <input type="text" name="designation" id="designation"  />
+              <p style="color: red;" id="designation_error"></p>
             </td>
 
             <td>
@@ -61,6 +63,7 @@ font-weight: bolder;
             </td>
             <td>
               <input type="text" name="addr1" id="addr1"  />
+              <p style="color: red;" id="addr1_error"></p>
             </td>
           </tr>
 
@@ -70,6 +73,7 @@ font-weight: bolder;
             </td>
             <td>
               <input type="text" name="email" id="email"  />
+              <p style="color: red;" id="eamil_error"></p>
             </td>
 
             <td>
@@ -77,6 +81,7 @@ font-weight: bolder;
             </td>
             <td>
               <input type="text" name="addr2" id="addr2"  />
+              <p style="color: red;" id="addr2_error"></p>
             </td>
           </tr>
 
@@ -86,6 +91,7 @@ font-weight: bolder;
             </td>
             <td>
               <input type="text" name="phone" id="phone"  />
+              <p style="color: red;" id="phone_error"></p>
             </td>
 
 
@@ -94,6 +100,7 @@ font-weight: bolder;
             </td>
             <td>
               <input type="text" name="zip" id="zip"  />
+              <p style="color: red;" id="zip_error"></p>
             </td>
           </tr>
 
@@ -104,6 +111,7 @@ font-weight: bolder;
             <td rowspan="2">
               <input type="radio" id="gender" name="gender" checked value="male" /> Male
               <input type="radio" id="gender" name="gender" value="female" /> Female
+              <p style="color: red;" id="gender_error"></p>
             </td>
 
 
@@ -114,6 +122,7 @@ font-weight: bolder;
               <select name="country" id="country"  onchange="view_state()">
               <option value="selected" selected disabled>Select</option>
               </select>
+              <p style="color: red;" id="country_error"></p>
               
             </td>
           </tr>
@@ -125,8 +134,9 @@ font-weight: bolder;
             <td>
               <select name="state" id="state" onchange="view_city()">
                 <option value="selected" selected disabled>Select</option>
-
+                
               </select>
+              <p style="color: red;" id="state_error"></p>
             </td>
           </tr>
 
@@ -140,6 +150,8 @@ font-weight: bolder;
                 <option value="single">Single</option>
                 <option value="married">Maried</option>
               </select>
+              <p style="color: red;" id="status_error"></p>
+
             </td>
             <td>
               <label for="City">City: </label>
@@ -149,6 +161,7 @@ font-weight: bolder;
               <option value="select" selected disabled>Select</option>
                
               </select>
+              <p style="color: red;" id="city_error"></p>
               
             </td>
 
@@ -159,6 +172,8 @@ font-weight: bolder;
             </td>
             <td>
               <input type="date" name="dob" id="dob"  />
+              <p style="color: red;" id="dob_error"></p>
+
             </td>
           </tr>
         </table>
@@ -193,21 +208,29 @@ font-weight: bolder;
                     ?>
 
               </select>
+              <p style="color: red;" id="course_error0"></p>
+              
             </td>
 
             <td>
               <label for="universityName1">University:</label>
               <input type="text" name="edu[0][universityName]" id="edu[0][universityName]"  />
+              <p style="color: red;" id="uniname_error0"></p>
+              
             </td>
 
             <td>
               <label for="passingYear1">Passing Year: </label>
               <input type="text" name="edu[0][passingYear]" id="edu[0][passingYear]"  />
+              <p style="color: red;" id="year_error0"></p>
+              
             </td>
 
             <td>
               <label for="percentage1">Percentage: </label>
               <input type="text" name="edu[0][percentage]" id="edu[0][percentage]"  />
+              <p style="color: red;" id="percentage_error0"></p>
+              
             </td>
 
             <!-- remove button -->
@@ -250,21 +273,29 @@ font-weight: bolder;
             <td>
               <label for="companyName1">Comapny Name:</label>
               <input type="text" name="work[0][companyName]" id="work[0][companyName]"  />
+              <p style="color: red;" id="company_error0"></p>
+              
             </td>
 
             <td>
               <label for="designation1">Designation:</label>
               <input type="text" name="work[0][designation]" id="work[0][designation]"  />
+              <p style="color: red;" id="designation_error0"></p>
+              
             </td>
 
             <td>
               <label for="from1">From:</label>
               <input type="date" name="work[0][from]" id="work[0][from]"  />
+              <p style="color: red;" id="from_error0"></p>
+              
             </td>
 
             <td>
               <label for="to1">To:</label>
               <input type="date" name="work[0][to]" id="work[0][to]"  />
+              <p style="color: red;" id="to_error0"></p>
+              
             </td>
 
             <!-- remove button -->
@@ -330,12 +361,16 @@ font-weight: bolder;
                       }
                     ?>
                     </select>
+                      <p style="color: red;" id="language_error0"></p>
+                    
                   </td>
 
                   <td>
                     <input type="checkbox" name="lang[0][read]"  id="lang[0][read]" value="read"/>Read
                     <input type="checkbox" name="lang[0][write]"  id="lang[0][write]" value="Write" />Write
                     <input type="checkbox" name="lang[0][speak]"  id="lang[0][speak]" value="Speak"/>Speak
+                    <p style="color: red;" id="known_error0"></p>
+                      
                   </td>
 
                   <!-- remove button -->
@@ -446,16 +481,22 @@ font-weight: bolder;
             <td>
               <label for="refName">Name:</label>
               <input type="text" name="ref[0][refName]" id="ref[0][refName]"  />
+              <p style="color: red;" id="refname0"></p>
+              
             </td>
 
             <td>
               <label for="refcontact">Contact Number:</label>
               <input type="tel" name="ref[0][refContact]" id="ref[0][refContact]"  />
+              <p style="color: red;" id="refcontact0"></p>
+              
             </td>
 
             <td>
               <label for="refRelation">Relation:</label>
               <input type="text" name="ref[0][refRelation]" id="ref[0][refRelation]"  />
+              <p style="color: red;" id="refrealtion0"></p>
+              
             </td>
 
             <!-- remove button -->
@@ -519,6 +560,8 @@ font-weight: bolder;
                     ?>
 
               </select>
+              <p style="color: red;" id="location"></p>
+
             </td>
 
             <td>
@@ -532,6 +575,8 @@ font-weight: bolder;
                 id="noticePeriod"
                 placeholder="in Months"
               />
+              <p style="color: red;" id="notice_error"></p>
+
             </td>
 
             <td rowspan="4">
@@ -547,6 +592,8 @@ font-weight: bolder;
                 <option value="hr">HR</option>
                 <option value="marketing">Marketing</option>
               </select>
+              <p style="color: red;" id="dept_error"></p>
+
             </td>
           </tr>
 
@@ -557,6 +604,8 @@ font-weight: bolder;
 
             <td>
               <input type="text" name="currentCTC" id="currentCTC"  />
+              <p style="color: red;" id="currect_error"></p>
+              
             </td>
           </tr>
 
@@ -567,6 +616,8 @@ font-weight: bolder;
 
             <td>
               <input type="text" name="expectedCTC" id="expectedCTC"  />
+              <p style="color: red;" id="expected_error"></p>
+              
             </td>
           </tr>
 
@@ -937,12 +988,7 @@ font-weight: bolder;
               var desptr = /^[a-zA-Z\s1-9]*$/;
       
               console.log(fname.match(nameptr))
-              if(!fname.match(nameptr))
-              {
-                alert("first false");
-                 
-      
-              }
+
               if(!lname.match(nameptr))
               {
                 alert("last false");
